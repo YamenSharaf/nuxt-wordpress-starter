@@ -9,7 +9,7 @@
         <nuxt-link
           v-for="page in pages"
           :key="page.id"
-          :to="page.slug"
+          :to="`/${page.slug}`"
           class="button--green home__link">{{ page.title.rendered }} </nuxt-link>
       </div>
     </div>

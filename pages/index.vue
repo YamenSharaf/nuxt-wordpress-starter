@@ -8,8 +8,8 @@
       <div class="links">
         <nuxt-link
           v-for="page in pages"
-          :key="page.slug"
-          to="/test"
+          :key="page.id"
+          :to="page.slug"
           class="button--green home__link">{{ page.title.rendered }} </nuxt-link>
       </div>
     </div>

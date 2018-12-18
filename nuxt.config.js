@@ -1,4 +1,5 @@
 const pkg = require('./package')
+import axios from 'axios'
 
 module.exports = {
   mode: 'universal',
@@ -22,7 +23,7 @@ module.exports = {
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json',
-    baseVersion: '/wp/v2/'
+    baseVersion: 'wp/v2'
   },
 
   /*
@@ -71,6 +72,20 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+  generate: {
+    routes: async function() {
+      const { data: pagesReq } = await axios.get(
+        'http://yamen.vimlyhost.com/wp/wp-json/wp/v2/pages'
+      )
+      const pages = pagesReq.map(page => {
+        return {
+          route: `/${page.slug}`,
+          payload: page
+        }
+      })
+      return pages
     }
   }
 }

@@ -6,7 +6,7 @@
       <h2 class="subtitle">{{ blogInfo.description }}
       </h2>
       <div class="links">
-        <a 
+        <a
           href="https://nuxtjs.org/" 
           target="_blank" 
           class="button--green">Documentation</a>

@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  width: 80%;
+  @include break(md) {
+    width: 90%;
+  }
+  @include break(sm) {
+    width: 97%;
+  }
+  &--wide {
+    width: 92%;
+    @include break(md) {
+      width: 96%
+    }
+    @include break(sm) {
+      width: 99%
+    }
+  }
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 0 0 100%;
+    padding: 1rem;
+    transition: all .2s ease-out;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    $grid-size: 6;
+
+    @for $sum from 1 through $grid-size {
+      @for $part from 1 through $grid-size {
+        .col-#{$part}-#{$sum} {
+          flex: 0 0 (($part/$sum*100#{'%'}));
+          padding: .2rem .5rem;
+        }
+      }
+    }
+
+      @include break(md) {
+        flex-flow: column wrap;
+        [class^=col-1-] {
+          padding: .5rem .2rem;
+        }
+      }
+
+    &--gutterless {
+      padding: 0;
+      [class^=col-1-] {
+        padding: 0;
+      }
+    }
+
+  }
+}

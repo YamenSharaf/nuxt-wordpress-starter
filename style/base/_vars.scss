@@ -1,0 +1,47 @@
+/* GLOBAL VALUES */
+$font-size-global: 100%; // 1rem = 10px
+
+/* SOLID COLORS */
+
+$color-primary: #4c83ff;
+$color-secondary: #2afadf;
+$color-success: #4caf50 !default;
+$color-warning: #eb9e05 !default;
+$color-danger: #ef5350 !default;
+$color-info: #878d99 !default;
+$color-white: #fff !default;
+
+// Lighter Greys
+$color-white: #fff;
+$color-grey-light-1: #faf9f9;
+$color-grey-light-2: #f4f2f2;
+$color-grey-light-3: #f0eeee;
+$color-grey-light-4: #ccc;
+
+// Darker Greys
+$color-black: #000;
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #999;
+
+/* GRADIENTS */
+$gradient-primary: linear-gradient(
+  135deg,
+  $color-secondary 10%,
+  $color-primary 100%
+);
+$gradient-primary-reverse: linear-gradient(
+  135deg,
+  $color-primary 10%,
+  $color-secondary 100%
+);
+
+/* GRID */
+$breakpoint-md: 800px;
+$breakpoint-sm: 450px;
+$grid-size: 4 !default; // Number of columns in a row
+
+/* BORDERS */
+$border-circle: 100px;
+$border-primary: 5px;
+$border-subtle: 3px;

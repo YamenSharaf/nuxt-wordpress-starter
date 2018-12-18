@@ -1,0 +1,11 @@
+@mixin break($breakpoint) {
+  @if $breakpoint == md {
+    @media only screen and (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media only screen and (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+}

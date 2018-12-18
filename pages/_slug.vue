@@ -1,7 +1,10 @@
 <template>
-  <h1>
-    SLUG {{ params.slug }} {{ payload.title.rendered }}
-  </h1>
+  <div>
+    <h1>
+      SLUG {{ params.slug }} {{ payload.title.rendered }}
+    </h1>
+    <p v-html="payload.content.rendered"/>
+  </div>
 </template>
 
 <script>

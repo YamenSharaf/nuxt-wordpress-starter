@@ -22,7 +22,7 @@ module.exports = {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json/',
+    baseEndpoint: 'https://yamen.vimlyhost.com/wp/wp-json/',
     baseVersion: 'wp/v2'
   },
   /*
@@ -51,7 +51,7 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    // https: true
+    https: true
     // See https://github.com/nuxt-community/axios-module#options
   },
 
@@ -77,7 +77,7 @@ module.exports = {
   generate: {
     routes: async function() {
       const { data: pagesReq } = await axios.get(
-        'http://yamen.vimlyhost.com/wp/wp-json/wp/v2/pages'
+        'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/pages'
       )
       const pages = pagesReq.map(page => {
         return {

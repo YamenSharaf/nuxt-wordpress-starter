@@ -6,14 +6,11 @@
       <h2 class="subtitle">{{ blogInfo.description }}
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/" 
-          target="_blank" 
-          class="button--green">Documentation</a>
-        <a 
-          href="https://github.com/nuxt/nuxt.js" 
-          target="_blank" 
-          class="button--grey">GitHub</a>
+        <nuxt-link
+          v-for="page in pages"
+          :key="page.slug"
+          :to="`/${page.slug}`"
+          class="button--green home__link">{{ page.title.rendered }} </nuxt-link>
       </div>
     </div>
   </section>
@@ -29,13 +26,14 @@ export default {
   },
   computed: {
     ...mapState({
-      blogInfo: 'blogInfo'
+      blogInfo: 'blogInfo',
+      pages: 'pages'
     })
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   min-height: 100vh;
   display: flex;
@@ -64,5 +62,11 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.home {
+  &__link {
+    margin: 0 20px;
+  }
 }
 </style>

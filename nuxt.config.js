@@ -22,7 +22,7 @@ module.exports = {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json',
+    baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json/',
     baseVersion: 'wp/v2'
   },
 

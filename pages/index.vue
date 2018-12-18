@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <div>
       <logo/>
       <h1 class="title">{{ blogInfo.name }}</h1>

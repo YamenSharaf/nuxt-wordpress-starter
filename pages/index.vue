@@ -2,20 +2,20 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        yamen-space
-      </h1>
-      <h2 class="subtitle">
-        I make things for the web
+      <h1 class="title">yamen-space</h1>
+      <h2 class="subtitle">I make things for the web
+      </h2>
+      <h2 class="subtitle">Your IP
+        {{ $store.state.ip }}
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
+        <a 
+          href="https://nuxtjs.org/" 
+          target="_blank" 
           class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
+        <a 
+          href="https://github.com/nuxt/nuxt.js" 
+          target="_blank" 
           class="button--grey">GitHub</a>
       </div>
     </div>
@@ -33,7 +33,6 @@ export default {
 </script>
 
 <style>
-
 .container {
   min-height: 100vh;
   display: flex;

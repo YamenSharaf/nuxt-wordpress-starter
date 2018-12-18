@@ -25,6 +25,9 @@ module.exports = {
     baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json/',
     baseVersion: 'wp/v2'
   },
+  api: {
+    baseUrl: ''
+  },
 
   /*
   ** Customize the progress-bar color

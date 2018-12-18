@@ -2,8 +2,8 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">yamen-space</h1>
-      <h2 class="subtitle">{{ blog.description }}
+      <h1 class="title">{{ blogInfo.name }}</h1>
+      <h2 class="subtitle">{{ blogInfo.description }}
       </h2>
       <div class="links">
         <a 
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     ...mapState({
-      blog: 'blogRes'
+      blogInfo: 'blogInfo'
     })
   }
 }

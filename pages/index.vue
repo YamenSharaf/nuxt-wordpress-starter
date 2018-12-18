@@ -3,10 +3,7 @@
     <div>
       <logo/>
       <h1 class="title">yamen-space</h1>
-      <h2 class="subtitle">I make things for the web
-      </h2>
-      <h2 class="subtitle">Your IP
-        {{ $store.state.ip }}
+      <h2 class="subtitle">{{ blog.description }}
       </h2>
       <div class="links">
         <a 
@@ -24,10 +21,16 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Logo
+  },
+  computed: {
+    ...mapState({
+      blog: 'blogRes'
+    })
   }
 }
 </script>

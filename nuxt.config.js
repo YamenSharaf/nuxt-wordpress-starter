@@ -21,6 +21,7 @@ module.exports = {
   ** Environment variables
   */
   env: {
+    baseUrl: '',
     baseEndpoint: 'http://yamen.vimlyhost.com/wp/wp-json/',
     baseVersion: 'wp/v2'
   },

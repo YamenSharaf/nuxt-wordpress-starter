@@ -1,6 +1,6 @@
 <template>
   <section>
-    <a href="/blog"> Blog </a>
+    <nuxt-link to="/blog"> Blog </nuxt-link>
     <div>
       <logo/>
       <h1 class="title">{{ blogInfo.name }}</h1>

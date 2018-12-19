@@ -1,6 +1,8 @@
 const pkg = require('./package')
 import axios from 'axios'
 
+const apiBase = 'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/'
+
 module.exports = {
   mode: 'universal',
 
@@ -76,24 +78,10 @@ module.exports = {
   },
   generate: {
     routes: async function() {
-      const { data: pagesReq } = await axios.get(
-        'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/pages'
-      )
-      const { data: postsReq } = await axios.get(
-        'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/posts'
-      )
-      const pages = pagesReq.map(page => {
-        return {
-          route: `/${page.slug}`,
-          payload: page
-        }
-      })
-      const posts = postsReq.map(post => {
-        return {
-          route: `/blog/${post.slug}`,
-          payload: post
-        }
-      })
+      const { data: pagesReq } = await axios.get(apiBase + 'pages')
+      const { data: postsReq } = await axios.get(apiBase + 'posts')
+      const pages = pagesReq.map(page => `/${page.slug}`)
+      const posts = postsReq.map(post => `/blog/${post.slug}`)
       return [...pages, ...posts]
     }
   }

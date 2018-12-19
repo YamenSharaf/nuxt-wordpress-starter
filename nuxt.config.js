@@ -79,13 +79,22 @@ module.exports = {
       const { data: pagesReq } = await axios.get(
         'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/pages'
       )
+      const { data: postsReq } = await axios.get(
+        'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/posts'
+      )
       const pages = pagesReq.map(page => {
         return {
           route: `/${page.slug}`,
           payload: page
         }
       })
-      return pages
+      const posts = postsReq.map(post => {
+        return {
+          route: `/blog/${post.slug}`,
+          payload: post
+        }
+      })
+      return [...pages, ...posts]
     }
   }
 }

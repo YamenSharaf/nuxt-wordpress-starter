@@ -6,11 +6,11 @@
       <h2 class="subtitle">{{ blogInfo.description }}
       </h2>
       <div class="links">
-        <nuxt-link
+        <a
           v-for="page in pages"
           :key="page.id"
-          :to="`/${page.slug}`"
-          class="button--green home__link">{{ page.title.rendered }} </nuxt-link>
+          :href="`/${page.slug}`"
+          class="button--green home__link">{{ page.title.rendered }} </a>
       </div>
     </div>
   </section>

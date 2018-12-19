@@ -7,11 +7,11 @@
       <h2 class="subtitle">{{ blogInfo.description }}
       </h2>
       <div class="links">
-        <a
-          v-for="page in pages"
-          :key="page.id"
-          :href="`/${page.slug}`"
-          class="button--green home__link">{{ page.title.rendered }} </a>
+        <nuxt-link
+          v-for="(page, slug) in pages"
+          :key="slug"
+          :to="`/${slug}`"
+          class="button--green home__link">{{ page.title.rendered }} </nuxt-link>
       </div>
     </div>
   </section>
@@ -28,7 +28,8 @@ export default {
   computed: {
     ...mapState({
       blogInfo: 'blogInfo',
-      pages: 'pages'
+      pages: 'pages',
+      flatPosts: 'flatPosts'
     })
   }
 }

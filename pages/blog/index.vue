@@ -4,11 +4,11 @@
       Blog
     </h1>
     <li 
-      v-for="post in posts" 
-      :key="post.slug">
-      <a :href="post.slug">
+      v-for="(post, slug) in posts" 
+      :key="slug">
+      <nuxt-link :to="`/blog/${slug}`">
         {{ post.title.rendered }}
-      </a>
+      </nuxt-link>
         
     </li>
   </div>

@@ -12,8 +12,8 @@ const createStore = () => {
   return new Vuex.Store({
     state: () => ({
       siteInfo: {},
-      pages: [],
-      posts: []
+      pages: {},
+      posts: {}
     }),
     getters: {},
     actions: {
@@ -49,10 +49,16 @@ const createStore = () => {
         state.blogInfo = blogInfo
       },
       SET_PAGES(state, pages) {
-        state.pages = pages
+        state.pages = pages.reduce((map, page) => {
+          map[page.slug] = page
+          return map
+        }, {})
       },
       SET_POSTS(state, posts) {
-        state.posts = posts
+        state.posts = posts.reduce((map, post) => {
+          map[post.slug] = post
+          return map
+        }, {})
       }
     }
   })

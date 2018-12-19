@@ -1,5 +1,6 @@
 <template>
   <section>
+    <a href="/blog"> Blog </a>
     <div>
       <logo/>
       <h1 class="title">{{ blogInfo.name }}</h1>

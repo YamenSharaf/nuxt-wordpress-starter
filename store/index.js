@@ -12,7 +12,8 @@ const createStore = () => {
   return new Vuex.Store({
     state: () => ({
       siteInfo: {},
-      pages: []
+      pages: [],
+      posts: []
     }),
     getters: {},
     actions: {
@@ -23,14 +24,24 @@ const createStore = () => {
         const pages = await $axios
           .$get(getFullEndpoint('pages'))
           .catch(err => console.log('ERROR', err))
+        const posts = await $axios
+          .$get(getFullEndpoint('posts'))
+          .catch(err => console.log('ERROR', err))
         commit('BLOG_OVERALL', blogInfo)
         commit('SET_PAGES', pages)
+        commit('SET_POSTS', posts)
       },
       async fetchPage(context, slug) {
         const [page] = await this.$axios.$get(
           getFullEndpoint(`pages?slug=${slug}`)
         )
         return page
+      },
+      async fetchPost(context, slug) {
+        const [post] = await this.$axios.$get(
+          getFullEndpoint(`posts?slug=${slug}`)
+        )
+        return post
       }
     },
     mutations: {
@@ -39,6 +50,9 @@ const createStore = () => {
       },
       SET_PAGES(state, pages) {
         state.pages = pages
+      },
+      SET_POSTS(state, posts) {
+        state.posts = posts
       }
     }
   })

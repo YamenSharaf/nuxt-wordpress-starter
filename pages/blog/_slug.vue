@@ -1,17 +1,18 @@
 <template>
   <div>
     <h1>
-      {{ payload.title.rendered }}
+      {{ postData.title.rendered }}
     </h1>
-    <div v-html="payload.content.rendered" />
+    <div v-html="postData.content.rendered" />
   </div>
 </template>
 
 <script>
 export default {
-  asyncData({ payload }) {
+  async asyncData({ params, error, payload, store }) {
     let postData = payload
-    return { postData }
+    if (!payload) postData = await store.dispatch('fetchPost', params.slug)
+    return { params, postData }
   }
 }
 </script>

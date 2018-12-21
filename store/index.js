@@ -1,12 +1,5 @@
 import Vuex from 'vuex'
-
-function getBaseEndpoint() {
-  return `${process.env.baseEndpoint}`
-}
-
-function getFullEndpoint(param) {
-  return `${process.env.baseEndpoint}${process.env.baseVersion}/${param}`
-}
+import { getBaseEndpoint, getFullEndpoint } from '@/services/index.js'
 
 const createStore = () => {
   return new Vuex.Store({

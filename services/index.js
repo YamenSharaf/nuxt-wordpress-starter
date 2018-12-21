@@ -2,6 +2,19 @@ import axios from 'axios'
 import wpConfig from '../wordpress.config'
 import { flattenArray } from '../helpers/general.helper'
 
+export function getBlogBase() {
+  if (wpConfig.https) return `https://${wpConfig.baseUrl}`
+  return `http://${wpConfig.baseUrl}`
+}
+
+export function getBaseEndpoint() {
+  return `${getBlogBase()}/wp-json`
+}
+
+export function getFullEndpoint(resource) {
+  return `${getBaseEndpoint()}/wp/v2/${resource}`
+}
+
 export function getInitialRoutes() {
   return new Promise(async (resolve, reject) => {
     try {

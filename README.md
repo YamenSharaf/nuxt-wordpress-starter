@@ -1,6 +1,6 @@
-# yamen-space
+# Nuxt Wordpress Starter
 
-> I make things for the web
+> Boilerplate for generating a static blog using Nuxt with Wordpress as a content provider
 
 ## Build Setup
 

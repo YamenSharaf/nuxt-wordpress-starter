@@ -11,7 +11,7 @@ import { fetchTagBySlug } from '@/services/tags.service'
 
 export default {
   async asyncData(context) {
-    console.log('context', JSON.stringify(context));
+    console.log('context', context);
     const tag = await fetchTagBySlug(context.params.slug)
     return { tag }
   }

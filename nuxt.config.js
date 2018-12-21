@@ -1,5 +1,5 @@
 const pkg = require('./package')
-import { getInitialRoutes } from './wordpress.config'
+import { getInitialRoutes } from './services'
 
 module.exports = {
   mode: 'universal',

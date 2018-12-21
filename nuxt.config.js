@@ -1,7 +1,10 @@
 const pkg = require('./package')
 import axios from 'axios'
+import { types, getInitialRoutes } from './wordpress.config'
 
 const apiBase = 'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/'
+
+const flat = arr => [].concat(...arr)
 
 module.exports = {
   mode: 'universal',
@@ -77,12 +80,6 @@ module.exports = {
     }
   },
   generate: {
-    routes: async function() {
-      const { data: pagesReq } = await axios.get(apiBase + 'pages')
-      const { data: postsReq } = await axios.get(apiBase + 'posts')
-      const pages = pagesReq.map(page => `/${page.slug}`)
-      const posts = postsReq.map(post => `/blog/${post.slug}`)
-      return [...pages, ...posts]
-    }
+    routes: async () => await getInitialRoutes()
   }
 }

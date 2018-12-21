@@ -36,15 +36,14 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~/plugins/axios' }],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios',
-    '@/modules/generate'
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration

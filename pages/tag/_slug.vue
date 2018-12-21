@@ -10,8 +10,9 @@
 import { fetchTagBySlug } from '@/services/tags.service'
 
 export default {
-  async asyncData({ params: { slug } }) {
-    const tag = await fetchTagBySlug(slug)
+  async asyncData(context) {
+    console.log('context', context);
+    const tag = await fetchTagBySlug(context.params.slug)
     return { tag }
   }
 }

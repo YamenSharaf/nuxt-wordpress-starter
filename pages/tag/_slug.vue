@@ -1,11 +1,8 @@
 <template>
   <div>
-    <h1>
-      TAG PAGE
+    <h1 class="tag-name">
+      TAG : {{ tag.name }}
     </h1>
-    <h2>
-      {{ tag.name }}
-    </h2>
   </div>
 </template>
 
@@ -20,5 +17,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.tag-name {
+  font-size: 2em;
+}
 </style>

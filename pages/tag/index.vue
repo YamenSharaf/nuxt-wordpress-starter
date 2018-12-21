@@ -6,7 +6,7 @@
     <li 
       v-for="(tag, slug) in tags" 
       :key="slug">
-      <nuxt-link :to="`/tag/${slug}`"> {{ tag.name }} </nuxt-link>
+      <a :href="`/tag/${slug}`"> {{ tag.name }} </a>
     </li>
   </div>
 </template>

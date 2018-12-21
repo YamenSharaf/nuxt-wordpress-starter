@@ -2,7 +2,7 @@ const pkg = require('./package')
 import { getInitialRoutes } from './services'
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page

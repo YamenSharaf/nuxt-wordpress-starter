@@ -1,10 +1,5 @@
 const pkg = require('./package')
-import axios from 'axios'
-import { types, getInitialRoutes } from './wordpress.config'
-
-const apiBase = 'https://yamen.vimlyhost.com/wp/wp-json/wp/v2/'
-
-const flat = arr => [].concat(...arr)
+import { getInitialRoutes } from './wordpress.config'
 
 module.exports = {
   mode: 'universal',

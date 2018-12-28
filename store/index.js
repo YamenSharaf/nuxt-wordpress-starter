@@ -8,7 +8,11 @@ const createStore = () => {
       pages: {},
       posts: {}
     }),
-    getters: {},
+    getters: {
+      getPosts(state) {
+        return state.posts
+      }
+    },
     actions: {
       async nuxtServerInit({ commit }, { $axios }) {
         const blogInfo = await $axios

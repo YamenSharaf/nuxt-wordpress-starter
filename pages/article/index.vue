@@ -6,7 +6,7 @@
     <li 
       v-for="(post, slug) in posts" 
       :key="slug">
-      <nuxt-link :to="`/blog/${slug}`">
+      <nuxt-link :to="`/article/${slug}`">
         {{ post.title.rendered }}
       </nuxt-link>
         

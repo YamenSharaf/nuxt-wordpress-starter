@@ -21,12 +21,12 @@ const createStore = () => {
         const pages = await $axios
           .$get(getFullEndpoint('pages'))
           .catch(err => console.log('ERROR', err))
-        const posts = await $axios
-          .$get(getFullEndpoint('posts'))
-          .catch(err => console.log('ERROR', err))
+        // const posts = await $axios
+        //   .$get(getFullEndpoint('posts'))
+        //   .catch(err => console.log('ERROR', err))
         commit('BLOG_OVERALL', blogInfo)
         commit('SET_PAGES', pages)
-        commit('SET_POSTS', posts)
+        // commit('SET_POSTS', posts)
       },
       async fetchPage(context, slug) {
         const [page] = await this.$axios.$get(
@@ -52,10 +52,7 @@ const createStore = () => {
         }, {})
       },
       SET_POSTS(state, posts) {
-        state.posts = posts.reduce((map, post) => {
-          map[post.slug] = post
-          return map
-        }, {})
+        state.posts = posts
       }
     }
   })

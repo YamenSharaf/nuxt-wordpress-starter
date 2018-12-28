@@ -4,12 +4,11 @@
       Blog
     </h1>
     <li 
-      v-for="(post, slug) in posts" 
+      v-for="(post, slug) in articles" 
       :key="slug">
       <nuxt-link :to="`/article/${slug}`">
         {{ post.title.rendered }}
       </nuxt-link>
-        
     </li>
   </div>
 </template>
@@ -21,7 +20,8 @@ import { fetchArticles } from '@/services/articles.service'
 export default {
   async asyncData({
     store: {
-      state: { posts: storedArticles }
+      state: { posts: storedArticles },
+      commit
     }
   }) {
     let articles = {}
@@ -29,17 +29,12 @@ export default {
       articles = storedArticles
     } else {
       articles = await fetchArticles()
+      commit('SET_POSTS', articles)
     }
     return { articles }
-  },
-  computed: {
-    ...mapState({
-      posts: 'posts'
-    })
   }
 }
 </script>
-
 
 <style>
 </style>
